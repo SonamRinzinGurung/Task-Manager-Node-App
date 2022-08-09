@@ -1,5 +1,11 @@
 const express = require("express");
 const app = express();
+
+const helmet = require("helmet");
+const cors = require("cors");
+const xss = require("xss-clean");
+const rateLimit = require("express-rate-limit");
+
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
 require("dotenv").config(); //get the MongoDB database url (secrete)
@@ -9,6 +15,18 @@ const errorHandlerMiddleware = require("./middleware/error-handler-middleware");
 //middleware
 app.use(express.static("./public"));
 app.use(express.json());
+
+app.use(helmet());
+app.use(cors());
+app.use(xss());
+
+app.set("trust proxy", true); //trust proxy allows us to use req.ip
+app.use(
+  rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per window
+  })
+);
 
 //routes
 app.use("/api/v1/tasks", tasks);

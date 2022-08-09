@@ -1,20 +1,27 @@
 {
-  "name": "jobs",
+  "name": "task-manager",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -L app.js"
+    "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lova",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.10"
+    "express-rate-limit": "^6.5.1",
+    "helmet": "^5.1.1",
+    "mongoose": "^5.11.10",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

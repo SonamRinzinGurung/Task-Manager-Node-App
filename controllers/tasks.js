@@ -53,7 +53,6 @@ const updateTask = asyncWrapper(async (req, res, next) => {
   res.status(200).json({ task });
 });
 
-
 //the controller methods are exported and evoked by the route module
 module.exports = {
   getAllTasks,
