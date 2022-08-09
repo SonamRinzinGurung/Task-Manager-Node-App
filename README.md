@@ -1,4 +1,8 @@
 # Task-Manager-Node-App
+---
+
+#### Check out the app hosted on Heroku
+[Task Manager](https://task-manager-6386.herokuapp.com/index.html)
 
 ## App Description
 
