@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./register.js" defer></script>
+    <title>Register</title>
+  </head>
+  <body>
+    <div id="login-form-wrap">
+      <h2>Register</h2>
+      <div class="form-alert"></div>
+
+      <form class="login-form" id="register-form">
+        <p>
+          <input
+            type="text"
+            id="register-name"
+            name="name"
+            placeholder="Name"
+            required
+          />
+        </p>
+        <p>
+          <input
+            type="text"
+            id="register-username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+        </p>
+        <p>
+          <input
+            type="password"
+            id="register-password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </p>
+        <p>
+          <input type="submit" id="login" value="Register" />
+        </p>
+      </form>
+      <div id="create-account-wrap">
+        <p></p>
+      </div>
+      <!-- axios -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+    </div>
+  </body>
+</html>

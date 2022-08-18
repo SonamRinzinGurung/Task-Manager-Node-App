@@ -5,12 +5,13 @@ const { createCustomError } = require("../errors/custom-error");
 //get all the tasks in the database
 // using asyncWrapper in all the controllers to apply DRY for the try catch block
 const getAllTasks = asyncWrapper(async (req, res) => {
-  const tasks = await Task.find({}); //empty object in find method returns all the items in the object
+  const tasks = await Task.find({ creatorId: req.user.userId }); //empty object in find method returns all the items in the object
   res.status(200).json({ tasks });
 });
 
 //create a task
 const createTask = asyncWrapper(async (req, res) => {
+  req.body.creatorId = req.user.userId;
   const task = await Task.create(req.body);
 
   res.status(201).json({ task });
@@ -32,7 +33,10 @@ const getTask = asyncWrapper(async (req, res, next) => {
 //delete the task
 const deleteTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params;
-  const task = await Task.findOneAndDelete({ _id: taskID });
+  const task = await Task.findOneAndDelete({
+    _id: taskID,
+    creatorId: req.user.userId,
+  });
   if (!task) {
     return next(createCustomError(`No task with id : ${taskID}`, 404));
   }
@@ -43,10 +47,14 @@ const deleteTask = asyncWrapper(async (req, res, next) => {
 const updateTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params;
 
-  const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const task = await Task.findOneAndUpdate(
+    { _id: taskID, creatorId: req.user.userId },
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
   if (!task) {
     return next(createCustomError(`No task with id : ${taskID}`, 404));
   }

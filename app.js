@@ -6,7 +6,9 @@ const cors = require("cors");
 const xss = require("xss-clean");
 const rateLimit = require("express-rate-limit");
 
+const usersRoute = require("./routes/users");
 const tasks = require("./routes/tasks");
+const authenticate = require("./middleware/authentication");
 const connectDB = require("./db/connect");
 require("dotenv").config(); //get the MongoDB database url (secrete)
 const notFound = require("./middleware/not-found");
@@ -29,7 +31,8 @@ app.use(
 );
 
 //routes
-app.use("/api/v1/tasks", tasks);
+app.use("/api/v1/user", usersRoute);
+app.use("/api/v1/tasks", authenticate, tasks);
 
 //error handling middleware
 app.use(notFound);
