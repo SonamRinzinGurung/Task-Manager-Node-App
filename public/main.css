@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400|Inconsolata:400");
 *,
 ::after,
 ::before {
@@ -45,8 +45,8 @@
   --green-dark: #0f5132;
 
   /* typography */
-  --headingFont: 'Inconsolata', monospace;
-  --bodyFont: 'Montserrat', sans-serif;
+  --headingFont: "Inconsolata", monospace;
+  --bodyFont: "Montserrat", sans-serif;
   --smallText: 0.7em;
   /* rest */
   --backgroundColor: var(--grey-50);
@@ -300,7 +300,7 @@ form > :last-child {
 .form-loading::before {
   background: var(--white);
   position: absolute;
-  content: '';
+  content: "";
   height: 100%;
   width: 100%;
   top: 0;
@@ -310,7 +310,7 @@ form > :last-child {
 }
 
 .form-loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: calc(50% - 3rem);
   left: calc(50% - 3rem);
@@ -443,4 +443,22 @@ form > :last-child {
 .single-task-form .form-alert {
   text-align: center;
   margin-top: 1rem;
+}
+
+.logoutBtn {
+  background-color: #8c2ba2;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 20px;
 }

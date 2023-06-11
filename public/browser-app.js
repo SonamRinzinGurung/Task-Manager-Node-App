@@ -112,7 +112,7 @@ function logOut() {
 
 const showAuthButton = () => {
   if (token) {
-    authDiv.innerHTML = `    <button id="logout" class="btn" onClick="logOut()">logout</button>
+    authDiv.innerHTML = `    <button id="logout" class="btn logoutBtn" onClick="logOut()">logout</button>
 `;
   } else {
     window.location.replace("./login.html");
